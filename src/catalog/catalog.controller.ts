@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, ParseIntPipe } from '@nestjs/common';
 import { CatalogService } from './catalog.service';
 import { Products } from './products.entity';
 import { Categories } from './categories.entity';
@@ -18,12 +18,12 @@ export class CatalogController {
   }
 
   @Get('category/:id')
-  getOneCategory(@Param('id') id: number) {
+  getOneCategory(@Param('id', ParseIntPipe) id: number) {
     return this.catalogService.getOneCategory(id);
   }
 
   @Get('product/:id')
-  getOneProduct(@Param('id') id: number): Promise<Products> {
+  getOneProduct(@Param('id', ParseIntPipe) id: number): Promise<Products> {
     return this.catalogService.getOneProduct(id);
   }
 }
