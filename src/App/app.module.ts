@@ -4,7 +4,9 @@ import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import config from 'commons/config';
-import { CatalogService } from 'src/catalog/catalog.service';
+import { Categories } from 'src/catalog/categories.entity';
+import { Products } from 'src/catalog/products.entity';
+import { CatalogModule } from 'src/catalog/catalog.module';
 
 @Module({
   imports: [
@@ -16,10 +18,11 @@ import { CatalogService } from 'src/catalog/catalog.service';
       username: config().database.username,
       password: config().database.password,
       database: config().database.database,
-      entities: [],
+      entities: [Categories, Products],
     }),
+    CatalogModule,
   ],
   controllers: [AppController],
-  providers: [AppService, CatalogService],
+  providers: [AppService],
 })
 export class AppModule {}
