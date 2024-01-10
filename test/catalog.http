@@ -12,3 +12,4 @@ GET {{baseUrl}}/category/{{id}} HTTP/1.1
 
 ### Lire un produit
 GET {{baseUrl}}/product/{{id}} HTTP/1.1
+
