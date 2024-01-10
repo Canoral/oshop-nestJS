@@ -21,9 +21,9 @@ export class UsersService {
     return users;
   }
 
-  async getUser(email: string): Promise<Users | undefined> {
+  async getUser(id: number): Promise<Users | undefined> {
     const user = await this.userRepository.findOne({
-      where: { email: email },
+      where: { id: id },
     });
     if (!user) {
       throw new NotFoundException('The user does not exist');

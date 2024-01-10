@@ -8,3 +8,20 @@ Content-Type: application/json
   "email" : "admin@admin.com",
   "password" : "password"
 }
+
+### S'enregister
+POST {{baseUrl}}/register HTTP/1.1
+Content-Type: application/json
+
+{
+  "firstname" : "Can",
+  "lastname" : "KAYA",
+  "email" : "test@test.com",
+  "password" : "password",
+  "passwordConfirm" : "password"
+}
+
+###
+GET {{baseUrl}} HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTcwNDg5MDQzNCwiZXhwIjoxNzA3NDgyNDM0fQ.Wwh2hRflRXH6QVOpt3gJKi-77wFL6ermL76kt_ESs38
+

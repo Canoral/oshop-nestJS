@@ -8,18 +8,18 @@ import { UsersService } from 'src/users/users.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Users } from 'src/users/users.entity';
 import { JwtModule } from '@nestjs/jwt';
-import config from 'src/commons/config';
+import { JwtStrategy } from './jwt.strategy';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([Users]),
     JwtModule.register({
       global: true,
-      secret: config().secret,
+      secret: process.env.JWT_SECRET,
       signOptions: { expiresIn: '30d' },
     }),
   ],
   controllers: [AuthController],
-  providers: [AuthService, UsersService],
+  providers: [AuthService, UsersService, JwtStrategy],
 })
 export class AuthModule {}

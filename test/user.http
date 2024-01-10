@@ -1,5 +1,5 @@
 @baseUrl = http://localhost:3000/users
-@id=4
+@id=2
 
 ### Lire tous les utilisateurs
 GET {{baseUrl}} HTTP/1.1
